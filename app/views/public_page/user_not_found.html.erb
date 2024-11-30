@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>User Not Found</title>
+        <%= stylesheet_link_tag "user_not_found.css" %>
+    </head>
+    <body>
+        <div>User <%= @username %> does not exist or does not have a public page set up.</div><br>
+        
+        
+        <%= link_to 'Return to dashboard', root_path, :class => 'return-to-dash-link' %>
+        </div>
+        
+    </body>
+</html>

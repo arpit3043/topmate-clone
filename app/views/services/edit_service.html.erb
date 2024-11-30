@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Service</title>
+    <%= stylesheet_link_tag 'edit_service', media: 'all' %>
+  </head>
+  <body>
+    <div class="service-container">
+      <h1>Edit Service</h1>
+      <%= form_with(model: @service, url: "", method: "post", local: true) do |form| %>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+        
+        <%= form.label :short_description %>
+        <%= form.text_area :short_description , class: 'ip'%>
+
+        <%= form.label :description %>
+        <%= form.text_area :description , class: 'ip'%>
+
+        <%= form.label :price %>
+        <div class="field-unit-wrapper">
+          <p>$</p>
+          <%= form.number_field :price, { value: format("%.2f", @service.price), step: 0.01, class: 'ip', style: 'margin: 0'} %>
+        </div>
+        <%= form.label :duration %>
+        <div class="field-unit-wrapper">
+          <%= form.number_field :duration , { class: 'ip input-no-margin', style: 'margin: 0' } %>
+          <p>minutes</p>
+        </div>
+
+        <div style="display: flex; gap: 20px">
+          <%= link_to 'Cancel', servicesindex_path, class: 'button cancel-button' %>
+          <%= form.submit "Save", class: 'button' %>
+        </div>
+        <% if flash[:error].present? %>
+          <div>
+            <%= flash[:error] %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <%= button_to 'Delete Service', hide_service_path(@service), method: :delete, id: "delete-service-#{@service.id}", class: 'button delete-button' %>
+      
+    </div>
+    
+
+  </body>
+</html>

@@ -1,0 +1,63 @@
+
+
+/* Example styles */
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #e35869;
+  }
+  
+  .login-container {
+    background-color: white; /* Background color for the container */
+    text-align: center;
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 400px;
+  }
+    
+    
+    
+  .login-container label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .login-container input[type="email"] {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    display: block;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .login-container input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 0px;
+    width: 100%;
+  }
+  
+  .login-container input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+ 
+  
+  
+a{
+    margin-top: 0px;
+    padding-top: 0px;
+    text-decoration: none;
+  }

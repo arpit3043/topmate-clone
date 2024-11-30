@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>Edit Public Page</title>
+    <%= stylesheet_link_tag 'edit_service', media: 'all' %>
+  </head>
+  <body>
+    <div class="service-container">
+      <h1>Edit Public Page Information</h1>
+
+      <%= form_for @current_user , url: edit_public_page_update_path, method: :patch do |form| %>
+        <% if @current_user.errors.any? %>
+          <div style="color: red">
+            <h2><%= pluralize(@current_user.errors.count, "error") %> prohibited this update from being saved:</h2>
+
+            <ul>
+              <% @current_user.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <%= form.label :fname, "First Name" %>
+        <%= form.text_field :fname %>
+
+        <%= form.label :lname, "Last Name" %>
+        <%= form.text_field :lname %>
+
+         <%= form.label :about %>
+        <%= form.text_area :about %>
+
+         <%= form.label :username %>
+        <%= form.text_field :username %>
+
+        <%= form.submit "Update Public Profile", class: 'button' %>
+       
+      <% end %>
+
+       <% if flash[:error].present? %>
+            <div class="alert-update">
+                <%= flash[:error] %>
+            </div>
+        <% end %>
+        <% if flash[:success].present? %>
+                <div class="success-update">
+                    <%= flash[:success] %>
+                </div>
+        <% end %>
+
+        <%= link_to "Return to Dashboard", root_path%>
+    </div>
+  </body>
+</html>
